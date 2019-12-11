@@ -1,0 +1,17 @@
+# action.yml
+name: 'Prestashop php-cs-fixer'
+author: prestashop
+description: 'An easy way to run a configurable php-cs-fixer on your project without adding it as a dependency.'
+branding:
+  icon: 'check'  
+  color: 'blue'
+inputs:
+  other-cmds:
+    description: 'Add some configs'
+    required: false
+    default: '/github/workspace --path-mode=intersection --dry-run --diff --using-cache=no --diff-format udiff'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.other-cmds }}
