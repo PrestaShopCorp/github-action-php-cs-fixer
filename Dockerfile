@@ -9,7 +9,6 @@ RUN docker-php-ext-install zip
 
 COPY --from=composer:1.8.6 /usr/bin/composer /usr/bin/composer
 RUN composer global require hirak/prestissimo
-RUN composer global require prestashop/php-dev-tools:v2.2
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

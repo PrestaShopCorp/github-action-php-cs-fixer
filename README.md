@@ -6,7 +6,7 @@ Default command is `'--dry-run --diff --using-cache=no --diff-format udiff'`
 You can replace this with the other-cmds param :  
 ```
       - name: php-cs-fixer default
-        uses: zalexki/php-cs-fixer-action@master
+        uses: prestashopcorp/php-cs-fixer-action@master
         with:
             other-cmds: '--dry-run --diff --config=/another/config/file'
 ```
