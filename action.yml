@@ -9,7 +9,7 @@ inputs:
     description: "Add some configs"
     required: false
     default: "/github/workspace --path-mode=intersection --dry-run --diff --using-cache=no --diff-format udiff"
-  working-dir:
+  working-directory:
     description: "Working directory"
     required: false
     default: "./"
@@ -17,5 +17,5 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.working-dir }}
+    - ${{ inputs.working-directory }}
     - ${{ inputs.other-cmds }}
