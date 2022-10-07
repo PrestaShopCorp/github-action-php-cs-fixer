@@ -1,16 +1,21 @@
-name: 'Prestashop php-cs-fixer'
+name: "Prestashop php-cs-fixer"
 author: prestashop
-description: 'An easy way to run a configurable php-cs-fixer on your project without adding it as a dependency.'
+description: "An easy way to run a configurable php-cs-fixer on your project without adding it as a dependency."
 branding:
-  icon: 'check'  
-  color: 'blue'
+  icon: "check"
+  color: "blue"
 inputs:
   other-cmds:
-    description: 'Add some configs'
+    description: "Add some configs"
     required: false
-    default: '/github/workspace --path-mode=intersection --dry-run --diff --using-cache=no --diff-format udiff'
+    default: "/github/workspace --path-mode=intersection --dry-run --diff --using-cache=no --diff-format udiff"
+  working-directory:
+    description: "Working directory"
+    required: false
+    default: "./"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
+    - ${{ inputs.working-directory }}
     - ${{ inputs.other-cmds }}
